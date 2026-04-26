@@ -7,7 +7,9 @@
 body {
     background-color: #ffffff;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
@@ -111,9 +113,24 @@ body {
     box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
 }
 
+main {
+    flex: 1; /* Занимает ВСЁ свободное пространство между навбаром и футером */
+    padding: 2rem;
+}
+
 @media (max-width: 600px) {
     .title { font-size: 2.5rem; }
     .db-status {
         font-size: 0.75rem;
     }
+}
+
+footer {
+    background: linear-gradient(135deg, #b6d0fa, #ccb8fc);
+    text-align: center;
+    padding: 1rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.875rem;
+    margin: 0;
 }
