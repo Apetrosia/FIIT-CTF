@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIIT CTF</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1 class="title">FIIT CTF</h1>
-    <div class="db-status" id="dbStatus">
-        <span class="status-dot"></span>
-        <span class="status-text">Проверка подключения к БД...</span>
-    </div>
-    <script type="module" src="check_db.js"></script>
+    <nav class="navbar">
+        <div class="db-status" id="dbStatus">
+            <h1 class="title">FIIT CTF</h1>
+            <div class="status-row">
+                <span class="status-dot"></span>
+                <span class="status-text">Проверка подключения к БД...</span>
+            </div>
+        </div>
+        <ul class="navlinks">
+            <li class="navlink"><a href="#">Главная</a></li>
+            <li class="navlink"><a href="#">Задачи</a></li>
+            <li class="navlink"><a href="#">Команды</a></li>
+            <li class="navlink"><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+    <script type="module" src="js/check_db.js"></script>
 </body>
 </html>

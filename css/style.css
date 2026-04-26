@@ -8,10 +8,6 @@ body {
     background-color: #ffffff;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 1.5rem;
 }
 
@@ -29,16 +25,72 @@ body {
 
 .db-status {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.875rem;
     color: #3b82f6; /* голубой цвет */
     opacity: 0;
+    margin: 0;
     animation: fadeIn 0.3s ease forwards 0.2s;
+}
+
+.status-row {
+    display: flex;
+    align-items: center; /* Вертикально центрирует точку относительно текста */
+    gap: 0.5rem;         /* Фиксированный отступ между точкой и текстом */
 }
 
 @keyframes fadeIn {
     to { opacity: 1; }
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    gap: 4rem;
+    
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #b6d0fa, #ccb8fc);
+    color: white;
+}
+
+.navbar a {
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+    color: #3b82f6;
+}
+
+.navbar a:visited {
+    color: #4b5563;
+}
+
+.navbar a:active {
+    color: #8b5cf6;
+}
+
+.navlinks {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    list-style: none;
+}
+
+.navlink {
+    margin-right: 15px;
+    list-style: none;
+    color: #152b4e;
+    
 }
 
 .status-dot {
@@ -61,5 +113,7 @@ body {
 
 @media (max-width: 600px) {
     .title { font-size: 2.5rem; }
-    .db-status { font-size: 0.75rem; }
+    .db-status {
+        font-size: 0.75rem;
+    }
 }
