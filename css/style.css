@@ -150,6 +150,10 @@ main {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: linear-gradient(135deg, #b6d0fa, #ccb8fc);
     text-align: center;
     padding: 1rem;
@@ -158,4 +162,5 @@ footer {
     font-size: 0.875rem;
     width: 100%;
     margin: 0;
+    z-index: 100;
 }
