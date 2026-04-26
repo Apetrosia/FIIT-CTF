@@ -118,6 +118,28 @@ main {
     padding: 2rem;
 }
 
+.post {
+    background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+    border: 0px solid #cbd5e1;
+    border-radius: 5rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.post-img {
+     width:100%;
+     border-radius: 5rem;
+     margin-top: 1rem;
+}
+
+.interactions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
 @media (max-width: 600px) {
     .title { font-size: 2.5rem; }
     .db-status {
