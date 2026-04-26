@@ -1,24 +1,20 @@
-const DB_STATUS = {
-    connected: false,
-    checked: false
-};
+import { createClient } from 'https://esm.sh/@supabase/supabase-js';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const DB_STATUS = { connected: false, checked: false };
 
 async function checkDatabaseConnection() {
     const statusDot = document.querySelector('.status-dot');
     const statusText = document.querySelector('.status-text');
 
     try {
-        // Проверяем, есть ли конфиг. Пока это заглушка, позже сюда подставим ключи Supabase
-        const config = window.SUPABASE_CONFIG || {};
-        const supabaseUrl = config.url || null;
-
-        if (!supabaseUrl) {
-            throw new Error('Supabase URL не настроен');
+        // Пытаемся сделать самый лёгкий запрос к БД
+        const { error } = await supabase.from('posts').select('id').limit(1).maybeSingle();
+        
+        if (error && error.code !== 'PGRST116') { // PGRST116 = таблица пуста, это НЕ ошибка подключения
+            throw new Error(error.message);
         }
-
-        // 👇 Сюда позже вставим реальный пинг БД через @supabase/supabase-js
-        // const { data, error } = await supabase.from('writeups').select('id').limit(1);
-        // if (error) throw error;
 
         DB_STATUS.connected = true;
         statusDot.classList.add('online');
@@ -31,11 +27,10 @@ async function checkDatabaseConnection() {
         statusDot.classList.remove('online');
         statusText.textContent = 'БД не подключена';
         statusText.style.color = '#ef4444';
-        console.log('DB check:', e.message);
+        console.error('DB check failed:', e);
     } finally {
         DB_STATUS.checked = true;
     }
 }
 
-// Запускаем после полной загрузки DOM
 document.addEventListener('DOMContentLoaded', checkDatabaseConnection);
