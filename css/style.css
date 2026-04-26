@@ -49,6 +49,9 @@ body {
 }
 
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -122,20 +125,22 @@ main {
 .post {
     background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
     border: 0px solid #cbd5e1;
-    border-radius: 5rem;
-    padding: 2.5rem;
+    border-radius: 3rem;
+    padding: 1.5rem 2.5rem;
     margin-bottom: 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    max-width: 800px;
 }
 
 .post-img {
      width:100%;
-     border-radius: 5rem;
+     border-radius: 3rem;
      margin-top: 1rem;
+     max-width: 800px;
+     max-height: 500px;
 }
 
 .interactions {
+    margin: 0 1rem;
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
@@ -150,10 +155,6 @@ main {
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background: linear-gradient(135deg, #b6d0fa, #ccb8fc);
     text-align: center;
     padding: 1rem;
@@ -162,5 +163,4 @@ footer {
     font-size: 0.875rem;
     width: 100%;
     margin: 0;
-    z-index: 100;
 }
